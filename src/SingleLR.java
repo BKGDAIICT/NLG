@@ -58,8 +58,9 @@ public class SingleLR {
     	CoordinatedPhraseElement object = nlgFactory.createCoordinatedPhrase();
     	for(NPPhraseSpec nps: nounspecList)
     	{
-    		object.addComplement(nps);
+    		object.addCoordinate(nps);
     	}
+    	
     	
     	
     	
