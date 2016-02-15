@@ -5,7 +5,7 @@ public class testSingleLR {
 	public static void main(String args[])
 	{
 		ArrayList<String> adj  = new ArrayList<String>();
-		adj.add("5star");
+		adj.add("5 star");
 		adj.add("vegetarian");
 		
 		prephrase prephrase = new prephrase("railwaystation","near");
@@ -14,7 +14,7 @@ public class testSingleLR {
 		prephraseList.add(prephrase);
 		ArrayList<prephrase> prephraseList1  = new ArrayList<prephrase>();
 		prephraseList1.add(prephrase1);
-		noun noun = new noun("restaurant",adj,prephraseList,"some");
+		noun noun = new noun("restaurant",adj,null,"some");
 		noun noun1 = new noun("hotels",null,prephraseList,null);
 		ArrayList<noun> nounList  = new ArrayList<noun>();
 		nounList.add(noun);
@@ -26,7 +26,8 @@ public class testSingleLR {
 		
 		
 		
-		SingleLR sentence = new SingleLR("Here","be",nounList,prephraseList1);
+		//SingleLR sentence = new SingleLR("Here","be",nounList,prephraseList1);
+		SingleLR sentence = new SingleLR("Here","be",nounList,null);
 		String s = sentence.genSentence();
 		System.out.print(s);
 		

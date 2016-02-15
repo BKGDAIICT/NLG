@@ -38,36 +38,34 @@ public class noun {
 		NPPhraseSpec noun = nlgFactory.createNounPhrase(n);
 		noun.setDeterminer(det);
 		
-		return noun;
-	}
-	
-	public ArrayList<AdjPhraseSpec> getAdjphrase()
-	{	
-		ArrayList<AdjPhraseSpec> adjList = new ArrayList<AdjPhraseSpec>();
+		
+		if(adj!=null){
 		for(String adj1: adj)
 		{
-			//System.out.println(adj1);
-				AdjPhraseSpec tempadj = nlgFactory.createAdjectivePhrase(adj1);
-				adjList.add(tempadj);
+			
+			noun.addPreModifier(adj1);
 		}
-		return adjList;
+		}
 		
-	}
 	
-	public ArrayList<PPPhraseSpec> getPrephrase()
-	{
-		ArrayList<PPPhraseSpec> prepList = new ArrayList<PPPhraseSpec>();
 		
+		if(prephrase!=null){
 		for(prephrase pre1: prephrase)
 		{	
 			PPPhraseSpec pp = nlgFactory.createPrepositionPhrase();
 			pp = pre1.getPrep();
-			prepList.add(pp);
+			noun.addComplement(pp);
+			
 			
 		}
+		}
 		
-		return prepList;
+		
+		
+		return noun;
 	}
+	
+	
 	
 	
 }

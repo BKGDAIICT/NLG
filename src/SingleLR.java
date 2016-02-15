@@ -41,34 +41,18 @@ public class SingleLR {
     	sentence.setSubject(adverb);
 
     	ArrayList<NPPhraseSpec> nounspecList = new ArrayList<NPPhraseSpec>();
-    	ArrayList<AdjPhraseSpec> adjList = new ArrayList<AdjPhraseSpec>();
-    	ArrayList<PPPhraseSpec> prepList = new ArrayList<PPPhraseSpec>();
-    	int i = 0;
+    	
+    	
     	for(noun n: nounList)
     	{
     		NPPhraseSpec nountemp = n.getNounPhrase();
-    		if(n.adj != null){
-    			adjList = n.getAdjphrase();
-    		}
-    		for(AdjPhraseSpec adj: adjList)
-    		{
-    			nountemp.addPreModifier(adj);	
-    		}
-    		
-    		prepList = n.getPrephrase();
-    		for(PPPhraseSpec prep: prepList)
-    		{
-    			nountemp.addComplement(prep);
-    			
-    		}
     		
     		
     		nounspecList.add(nountemp);
-    		System.out.println(i);
-    		i++;
+    		
     	}
     	
-    	//nounphrase noun = new nounphrase(nounspecList);
+    	
     	
     	
     	CoordinatedPhraseElement object = nlgFactory.createCoordinatedPhrase();
@@ -77,16 +61,19 @@ public class SingleLR {
     		object.addComplement(nps);
     	}
     	
-    	//object = noun.getcoordinatePhrase(); 
+    	
     	
     	sentence.setObject(object);
     	
     	
-    	for(prephrase prep1: sprephrase)
+    	if(sprephrase!=null)
     	{
-    		PPPhraseSpec pp = nlgFactory.createPrepositionPhrase();
-    		pp = prep1.getPrep();
-    		sentence.addComplement(pp);	
+    		for(prephrase prep1: sprephrase)
+    		{
+    			PPPhraseSpec pp = nlgFactory.createPrepositionPhrase();
+    			pp = prep1.getPrep();
+    			sentence.addComplement(pp);	
+    		}
     	}
     	
     	String output = realiser.realiseSentence(sentence);
