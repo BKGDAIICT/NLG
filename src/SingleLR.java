@@ -40,30 +40,14 @@ public class SingleLR {
     	AdvPhraseSpec adverb = nlgFactory.createAdverbPhrase(sadverb);
     	sentence.setSubject(adverb);
 
-    	ArrayList<NPPhraseSpec> nounspecList = new ArrayList<NPPhraseSpec>();
-    	
-    	
+    	CoordinatedPhraseElement object = nlgFactory.createCoordinatedPhrase();
     	for(noun n: nounList)
     	{
     		NPPhraseSpec nountemp = n.getNounPhrase();
-    		
-    		
-    		nounspecList.add(nountemp);
-    		
+    		object.addCoordinate(nountemp);
+    	
     	}
-    	
-    	
-    	
-    	
-    	CoordinatedPhraseElement object = nlgFactory.createCoordinatedPhrase();
-    	for(NPPhraseSpec nps: nounspecList)
-    	{
-    		object.addCoordinate(nps);
-    	}
-    	
-    	
-    	
-    	
+  	
     	sentence.setObject(object);
     	
     	
@@ -78,7 +62,7 @@ public class SingleLR {
     	}
     	
     	String output = realiser.realiseSentence(sentence);
- 		System.out.println(output);
+ 		
     	return output;
     
 	}

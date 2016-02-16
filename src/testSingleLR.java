@@ -8,7 +8,7 @@ public class testSingleLR {
 		adj.add("5 star");
 		adj.add("vegetarian");
 		
-		prephrase prephrase = new prephrase("railwaystation","near");
+		prephrase prephrase = new prephrase("railway station","near");
 		prephrase prephrase1 = new prephrase("airport","near");
 		ArrayList<prephrase> prephraseList  = new ArrayList<prephrase>();
 		prephraseList.add(prephrase);

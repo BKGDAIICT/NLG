@@ -13,13 +13,7 @@ public class prephrase{
 	String prep = new String();
 	private Lexicon lexicon = Lexicon.getDefaultLexicon();
     private NLGFactory nlgFactory = new NLGFactory(lexicon);
-	//public prephrase(ArrayList<noun> noun,String prep)
-	//{
-	//	super(noun);
-	//	this.prep = prep;
-		
-		
-	//}
+	
 	public prephrase(String noun, String pre)
 	{
 		this.noun = noun;
